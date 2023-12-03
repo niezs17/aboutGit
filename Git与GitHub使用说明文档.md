@@ -495,6 +495,52 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 3. 输入仓库名称、描述等信息，并选择是否将该仓库设为私有。
 4. 点击"Create repository"按钮创建远程仓库。
 
+### 在GitHub上配置SSH
+
+千万别忘了使用Github托管代码之前，要先进行SSH的配置。SSH（Secure Shell）是一种网络协议，它通过加密的方式在网络上安全地传输数据，常用于远程登录和文件传输。SSH可以提供一种安全的身份验证方式，用于访问和操作 GitHub 仓库。配置 SSH后，我们就可以使用公钥加密来进行身份验证，这提供了以下几个重要的优势：
+
+1. **安全性：** 使用 SSH 可以加密通信，防止中间人攻击和窃听。这保护了用户与 GitHub 之间的数据传输的安全性。
+2. **身份验证：** SSH 使用密钥对进行身份验证，而不是像用户名和密码那样依赖于口令。这使得身份验证更为安全，因为密钥对通常比密码更难以破解。
+3. **便利性：** 一旦设置了 SSH，就无需在每次与 GitHub 通信时都输入用户名和密码。这提供了更方便的工作流程，尤其是在频繁进行 Git 操作时。
+
+跟随下面步骤，完成你的配置：
+
+步骤一：先用win+R打开cmd窗口，输入`cd .ssh`，打开windows系统自带的.ssh文件。
+
+![image-20231203155733897](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203155733897.png)
+
+步骤二：输入`ssh-keygen -t rsa -b 4096`，此时它会提示你输入你准备创建的密钥文件的名称，因为我之前创建过叫做`key`的文件，所以这次我设置的是`yourkey`，**如果你下次创建的名称与之前创建过的重复，那么新文件会覆盖旧文件，注意了。**然后，系统还会让你输入两次passphrase，不用管它，直接回车两次就好了。
+
+![image-20231203155806591](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203155806591.png)
+
+步骤三：不要退出.ssh文件夹，输入`dir`，如果能找到你刚才创建的一对公钥（`yourkey.pub`）和私钥（`yourkey`）。公钥可以用于GitHub的配置中，私钥不要动。
+
+![image-20231203155946248](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203155946248.png)
+
+步骤四：复制公钥内容，输入`code yourkey.pub`用vscode打开公钥，然后把内容复制下来。
+
+![image-20231203160012613](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203160012613.png)
+
+![image-20231203160049773](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203160049773.png)
+
+步骤五：打开GitHub，进入个人首页，点击setting->SSH and GPG keys->New SSH key，把复制的内容放入key文本框内，安全起见，这里打了马赛克。
+
+![image-20231203160344724](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203160344724.png)
+
+步骤六：修改config文件，指定GitHub每次传输数据时都使用此密钥
+
+输入`code config`，打开config文件，然后把里面的内容改成如下，`yourkey`就是你创建密钥的名字。
+
+```
+# github
+User git
+HostName github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/yourkey
+```
+
+步骤七：用`git clone git@github.com:Buzz2Z/aboutGit.git `验证是否成功。
+
 ### 将本地仓库与远程仓库关联
 
 在本地仓库所在的文件夹中打开命令行或终端，执行以下操作：
@@ -536,11 +582,11 @@ git push -u origin your-local-branch-name
 
 **步骤一**：**打开GitHub首页，点击NEW，新建一个repository**
 
-![image-20231203150655421](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203150655421.png![image-20231203150706919](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203150706919.png)
+![image-20231203150655421](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203150655421.png![image-20231203150706919](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203150706919.png)
 
 **步骤二：填写repository name，descirption，后面的选项自己选，但是如果点了添加readme，那么后面一步的页面不会显示，不过没有关系，在下一步直接输入命令，效果是一样的。点击create repository。**
 
-![image-20231203150922652](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203150922652.png)
+![image-20231203150922652](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203150922652.png)
 
 **步骤三：如果前一步没勾选readme，就会出现下面的界面，这个界面引导你创建本地仓库，并且关联本地仓库到远程仓库。分为三种不同的方式。**
 
@@ -548,15 +594,15 @@ git push -u origin your-local-branch-name
 - 方式二：如果你已经用git init创建了自己的本地仓库，那么就用第二种方式，先用git bash打开工作区文件，然后直接复制红圈二的指令到命令行执行。
 - 方式三：用其他方式导入，这个方法很少用，可以自己研究。
 
-![image-20231203151623447](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203151623447.png)
+![image-20231203151623447](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203151623447.png)
 
 我直接随便找了个文件夹关联：
 
-![image-20231203151820817](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203151820817.png)
+![image-20231203151820817](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203151820817.png)
 
 刷新GitHub界面，下面是成功执行的结果：
 
-![image-20231203152042099](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203152042099.png)
+![image-20231203152042099](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203152042099.png)
 
 ### 使用命令行查看 GitHub 上的远程仓库
 
