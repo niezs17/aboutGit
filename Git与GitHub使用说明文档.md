@@ -509,7 +509,11 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 
 ![image-20231203155733897](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203155733897.png)
 
-步骤二：输入`ssh-keygen -t rsa -b 4096`，此时它会提示你输入你准备创建的密钥文件的名称，因为我之前创建过叫做`key`的文件，所以这次我设置的是`yourkey`，**如果你下次创建的名称与之前创建过的重复，那么新文件会覆盖旧文件，注意了。**然后，系统还会让你输入两次passphrase，不用管它，直接回车两次就好了。
+如果提示`.ssh`路径不存在，在你的用户文件夹下新建一个名叫.ssh的文件夹。
+
+![image-20231203165432840](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203165432840.png)
+
+步骤二：输入`ssh-keygen -t rsa -b 4096`，此时它会提示你输入你准备创建的密钥文件的名称，因为我之前创建过叫做`key`的文件，所以这次我设置的是`yourkey`，**注意！如果你下次创建的名称与之前创建过的重复，那么新文件会覆盖旧文件。**然后，系统还会让你输入两次passphrase，不用管它，直接回车两次就好了。
 
 ![image-20231203155806591](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203155806591.png)
 
@@ -673,6 +677,76 @@ Git Graph 插件的优势在于可视化展示。
 
 
 
+### 用GitGraph完成一些基本操作
+
+#### 创建本地仓库
+
+用vscode打开一个未创建过仓库的文件夹，然后点击左边栏的源代码管理选项，在这里进行所有关于git的操作。
+
+点击初始化仓库，这个按钮帮助你完成`git init`的操作。
+
+![image-20231203165559743](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203165559743.png)
+
+#### 添加与提交更改
+
+![image-20231203170254710](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203170254710.png)
+
+如果你在工作区中刚刚创建了新的文件，并且还未放入暂存区，那么默认处于未跟踪（untracked）状态，此时会显示绿色的“U”，选中此文件，点击“+”按钮，可以将其放入暂存区，完成文件的跟踪，这相当于`git add`指令，下图中，已经将"1.txt""2.txt"放入了暂存区。
+
+![image-20231203170414686](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203170414686.png)
+
+然后点击提交按钮，将暂存区的更改放入本地仓库，这相当于`git commit`指令，然后GitGraph会让你输入本次提交的信息，相当于`git commit -m "Commit message"`中`Commit message`的内容。
+
+![image-20231203170704130](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203170704130.png)
+
+保存后退出“COMMIT_EDITMSG”，完成一次提交，这时我们查看gitgraph树，发现已经完成一次提交。
+
+![image-20231203170817787](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203170817787.png)
+
+#### 查看差异
+
+假设我已经完成了三次提交，git graph树变成了下面的样子。
+
+![image-20231203171055230](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203171055230.png)
+
+其中，第一次提交：增加了1，2文本
+
+第二次提交：增加了3，4文本
+
+第三次提交：修改了1，2文本
+
+我们要查看每次修改的差异，可以直接点击每次提交的标签，如图，我要查看第三次提交的更改，会显示以下内容。
+
+![image-20231203171227418](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203171227418.png)
+
+双击每一个修改，可以看到具体修改内容，比如双击图中1.txt，显示如下内容，这就完成了`git diff`的功能。
+
+![image-20231203171351780](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203171351780.png)
+
+这表示我们添加了一行数字，内容为“111222333”。
+
+#### 回退版本
+
+直接右键每次提交的标签，选择Reset current branch to this Commit，选择回退方式，这相当于完成`git reset `指令。
+
+![image-20231203171454868](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203171454868.png)
+
+![image-20231203171539518](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203171539518.png)
+
+这里我们选择soft方式回到第二次提交，可见，暂存区和工作区的更改都被保留了下来。
+
+![image-20231203171732461](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203171732461.png)
 
 
-*有待完善*
+
+#### 分支操作
+
+
+
+
+
+
+
+
+
+*。。。有待完善*
