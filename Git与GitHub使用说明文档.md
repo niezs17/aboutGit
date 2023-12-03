@@ -1,5 +1,9 @@
 # Git与GitHub使用说明文档
 
+
+
+[TOC]
+
 ## 引言
 
 ### Git和GitHub概述
@@ -61,7 +65,7 @@ Git是一种分布式版本控制系统，用于跟踪、管理和协调项目�
 
 直接搜索Microsoft VSCode官网，从官网下载，确保万无一失。
 
-#### 	为什么我们要安装vscode呢？
+#### 	为什么要安装vscode
 
 ​	与传统的IDE相比，VSCode具有以下优点：
 
@@ -96,7 +100,7 @@ Git是一种分布式版本控制系统，用于跟踪、管理和协调项目�
 
 
 
-## cmd指令入门
+## CMD指令入门
 
 在正式学习Git指令之前，我们需要先了解几个windows环境下常用的cmd指令。
 
@@ -186,7 +190,7 @@ Git是一种分布式版本控制系统，用于跟踪、管理和协调项目�
 
 
 
-## 相关概念
+## 相关概念解惑
 
 ### 工作区域
 
@@ -248,9 +252,13 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 2. 进入您想要创建仓库的文件夹：`cd path`
 3. 输入以下命令初始化一个新的Git仓库：`git init`
 
+
+
 ![image-20231202173248851](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231202173248851.png)
 
-##### 此时我们就创建好了一个`.git`文件夹。
+
+
+**此时我们就创建好了一个`.git`文件夹。**
 
 `.git`文件夹是Git版本控制系统用来存储仓库元数据和对象数据库的地方。该文件夹包含了整个仓库的配置信息、对象数据库（存储文件和目录的快照）、引用（指向提交的指针）、配置文件等。因此，可以说`.git` 文件夹是本地Git仓库的核心。
 
@@ -361,7 +369,7 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 
 
 
-## *分支
+## 分支
 
 在 Git 中，分支是用来表示项目不同版本、不同功能或不同任务的一种非常重要的概念。简要来说，Git 分支可以理解为项目代码的一个独立副本，它允许在不影响主要代码线的情况下进行修改和实验。
 
@@ -522,17 +530,19 @@ git push -u origin main
 git push -u origin your-local-branch-name
 ```
 
-### 这一部分有更简单的办法：直接根据创建新仓库时，Github的提示创建即可，步骤如下：
+### 更简单的办法
 
-##### 步骤一：打开GitHub首页，点击NEW，新建一个repository
+这一部分有更简单的办法，确保你不会出错，那就是直接根据在GitHub中创建新的远程仓库时，Github给你的提示来操作。
+
+**步骤一**：**打开GitHub首页，点击NEW，新建一个repository**
 
 ![image-20231203150655421](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203150655421.png![image-20231203150706919](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203150706919.png)
 
-##### 步骤二：填写repository name，descirption，后面的选项自己选，但是如果点了添加readme，那么后面一步的页面不会显示，不过没有关系，在下一步直接输入命令，效果是一样的。点击create repository。
+**步骤二：填写repository name，descirption，后面的选项自己选，但是如果点了添加readme，那么后面一步的页面不会显示，不过没有关系，在下一步直接输入命令，效果是一样的。点击create repository。**
 
 ![image-20231203150922652](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203150922652.png)
 
-##### 步骤三：如果前一步没勾选readme，就会出现下面的界面，这个界面引导你创建本地仓库，并且关联本地仓库到远程仓库。分为三种不同的方式。
+**步骤三：如果前一步没勾选readme，就会出现下面的界面，这个界面引导你创建本地仓库，并且关联本地仓库到远程仓库。分为三种不同的方式。**
 
 - 方式一：如果你还没有用git init创建自己的本地仓库，那么就用这种方式，先用git bash打开工作区文件，然后直接复制红圈一的指令到命令行执行。
 - 方式二：如果你已经用git init创建了自己的本地仓库，那么就用第二种方式，先用git bash打开工作区文件，然后直接复制红圈二的指令到命令行执行。
