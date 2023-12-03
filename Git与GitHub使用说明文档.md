@@ -411,7 +411,7 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
    - 使用 `git checkout` 或 `git switch` 命令可以在不同分支之间切换。
 
    ```
-   bashCopy code# 切换到新创建的分支
+   # 切换到新创建的分支
    git checkout new-feature
    ```
 
@@ -496,30 +496,103 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 cd /path/to/your/local/repository
 
 # 关联本地仓库与远程仓库
-git remote add origin git@github.com:<your-username>/<your-repsitory>.git
-
-# 将本地分支推送到远程仓库
-git push -u origin master
+git remote add origin git@github.com:<your-username>/<your-repository>.git
 ```
 
 确保将 `your-username` 和 `your-repository` 替换为你的 GitHub 用户名和仓库名称。
 
-### 步骤四：推送本地分支到远程仓库
+### 创建本地main分支
+
+```
+git branch <branch-name>
+```
+
+`<branch-name>`填`main`
+
+### 推送本地分支到远程仓库
 
 ```
 # 将本地分支推送到远程仓库
-git push -u origin master
+git push -u origin main
 ```
 
-这将把本地的 `master` 分支推送到远程仓库。如果你在本地使用了其他分支，可以将它们推送到远程仓库，例如：
+这将把本地的 `main` 分支推送到远程仓库。如果你在本地使用了其他分支，可以将它们推送到远程仓库，例如：
 
 ```
 git push -u origin your-local-branch-name
 ```
 
-### 步骤五：查看 GitHub 上的远程仓库
+### 这一部分有更简单的办法：直接根据创建新仓库时，Github的提示创建即可，步骤如下：
+
+##### 步骤一：打开GitHub首页，点击NEW，新建一个repository
+
+![image-20231203150655421](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203150655421.png![image-20231203150706919](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203150706919.png)
+
+##### 步骤二：填写repository name，descirption，后面的选项自己选，但是如果点了添加readme，那么后面一步的页面不会显示，不过没有关系，在下一步直接输入命令，效果是一样的。点击create repository。
+
+![image-20231203150922652](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203150922652.png)
+
+##### 步骤三：如果前一步没勾选readme，就会出现下面的界面，这个界面引导你创建本地仓库，并且关联本地仓库到远程仓库。分为三种不同的方式。
+
+- 方式一：如果你还没有用git init创建自己的本地仓库，那么就用这种方式，先用git bash打开工作区文件，然后直接复制红圈一的指令到命令行执行。
+- 方式二：如果你已经用git init创建了自己的本地仓库，那么就用第二种方式，先用git bash打开工作区文件，然后直接复制红圈二的指令到命令行执行。
+- 方式三：用其他方式导入，这个方法很少用，可以自己研究。
+
+![image-20231203151623447](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203151623447.png)
+
+我直接随便找了个文件夹关联：
+
+![image-20231203151820817](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203151820817.png)
+
+刷新GitHub界面，下面是成功执行的结果：
+
+![image-20231203152042099](C:\Users\NIEZS\AppData\Roaming\Typora\typora-user-images\image-20231203152042099.png)
+
+### 使用命令行查看 GitHub 上的远程仓库
 
 刷新 GitHub 页面，你应该能够看到已经成功推送的仓库。
+
+一些关于远程仓库状态的指令：
+
+1. **查看远程仓库列表：**
+
+   ```
+   git remote
+   ```
+
+   这会显示你当前 Git 仓库配置的所有远程仓库的简写名称。
+
+2. **查看远程仓库详细信息：**
+
+   ```
+   git remote -v
+   ```
+
+   这会显示远程仓库的详细信息，包括 URL。
+
+3. **重命名远程仓库：**
+
+   ```
+   git remote rename <旧远程仓库名> <新远程仓库名>
+   ```
+
+   这会将远程仓库的简写名称从旧的名字改为新的名字。
+
+4. **删除远程仓库：**
+
+   ```
+   git remote remove <远程仓库名>
+   ```
+
+   这会移除你的 Git 仓库配置中的某个远程仓库。
+
+5. **查看远程仓库信息：**
+
+   ```
+   git remote show <远程仓库名>
+   ```
+
+   这会显示关于指定远程仓库的更详细的信息，包括跟踪的分支、本地和远程分支之间的关系等。
 
 
 
