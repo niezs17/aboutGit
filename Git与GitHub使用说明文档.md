@@ -1,5 +1,7 @@
 # Git与GitHub使用说明文档
 
+
+
 [TOC]
 
 ## 引言
@@ -12,17 +14,21 @@ Git是一种分布式版本控制系统，用于跟踪、管理和协调项目�
 
 版本控制是一种记录文件更改历史的系统，以便将来查看和回溯。对于软件开发来说，版本控制是至关重要的，因为它允许团队成员同时工作在同一个项目上，而不会互相干扰。它还使得跟踪和修复错误、回退到旧版本和理解项目历史变得更加容易。
 
+
+
 ## 准备工作
 
 ### 注册你的Github账号
 
-1. 首先进入github官网 <https://github.com/>
+1. 首先进入github官网 https://github.com/
 
    ![image-20231202163647275](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231202163647275.png)
 
 2. 点击右上角的sign up(注册)，sign in是登录。
 
-3. 填写自己的邮箱、密码、用户名等信息，然后用邮箱验证即可完成。
+3.  填写自己的邮箱、密码、用户名等信息，然后用邮箱验证即可完成。
+
+
 
 ### Git的安装
 
@@ -30,7 +36,7 @@ Git是一种分布式版本控制系统，用于跟踪、管理和协调项目�
 
 - #### Windows
 
-1. 访问Git官方网站：<https://git-scm.com/downloads>
+1. 访问Git官方网站：https://git-scm.com/downloads
 2. 下载适用于Windows的Git安装程序。
 3. 执行安装程序并按照指示完成安装。保留默认设置即可。
 
@@ -45,24 +51,30 @@ Git是一种分布式版本控制系统，用于跟踪、管理和协调项目�
 
 2. 输入以下命令安装Git：`sudo apt-get update && sudo apt-get install git`
 
-在windows环境下，具体安装步骤可以参考如下网址，一步一步来：<https://blog.csdn.net/mukes/article/details/115693833。按照步骤完成后，右键任意一个文件夹，得到菜单中的以下内容，说明你已经安装成功了！！>
+   
+
+在windows环境下，具体安装步骤可以参考如下网址，一步一步来：https://blog.csdn.net/mukes/article/details/115693833。按照步骤完成后，右键任意一个文件夹，得到菜单中的以下内容，说明你已经安装成功了！！
 
 ![image-20231202163145351](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231202163145351.png)
 
+
+
 ### Visual Studio Code的安装
 
- Visual Studio Code（VSCode）是一个流行的代码编辑器，支持Git和许多其他开发工具。
+​	Visual Studio Code（VSCode）是一个流行的代码编辑器，支持Git和许多其他开发工具。
 
 直接搜索Microsoft VSCode官网，从官网下载，确保万无一失。
 
-#### 为什么要安装vscode
+#### 	为什么要安装vscode
 
- 与传统的IDE相比，VSCode具有以下优点：
+​	与传统的IDE相比，VSCode具有以下优点：
 
 1. **轻量快速**：VSCode 启动迅速，占用资源相对较少，是一款轻量级的编辑器。
 2. **丰富的扩展生态系统**：VSCode 支持丰富的扩展，几乎可以满足任何开发需求。你可以根据你的项目和语言选择安装相关的扩展，使得编辑器更符合你的工作流程。
 3. **智能代码补全**：VSCode 提供强大的代码补全功能，可以根据你的代码上下文智能地补全代码，提高编码效率。
 4. **内置 Git 支持**：VSCode 集成了 Git，你可以直接在编辑器中进行版本控制操作，查看提交历史，解决冲突等。
+
+
 
 #### 在VSCode中安装Git Graph插件
 
@@ -86,98 +98,77 @@ Git是一种分布式版本控制系统，用于跟踪、管理和协调项目�
 
 ![image-20231202164838214](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231202164838214.png)
 
-## PowerShell指令入门
 
-在正式学习Git指令之前，我们需要先了解几个windows环境下常用的PowerShell指令。
 
-1. `cd (Change Directory):`
+## CMD指令入门
+
+在正式学习Git指令之前，我们需要先了解几个windows环境下常用的cmd指令。
+
+1. **cd (Change Directory):**
 
    - 切换到指定目录。
 
-   - 用例
+     `cd path to directory`
 
-   ```powershell
-      cd 'D:/nodejs/node_modules'
-   ```
-
-2. `dir (Directory Listing):`
+2. **dir (Directory Listing):**
 
    - 列出当前目录下的文件和子目录。
 
-   - 用例
+     `dir`
 
-   ```powershell
-      dir
-   ```
-
-3. `copy:`
+3. **copy:**
 
    - 复制文件或目录。
-   - 用例
 
-   ```powershell
-     copy source destination
-   ```
+     `copy source destination`
 
-4. `del (Delete):`
+4. **del (Delete):**
 
    - 删除文件。
-   - 用例
 
-   ```powershell
-    del filename
-   ```
+     `del filename`
 
-5. `rd (Remove Directory):`
+5. **rd (Remove Directory):**
 
    - 删除目录。
-   - 用例
 
-   ```powershell
-      rd /s /q directoryname
-   ```
+     `rd /s /q directoryname`
 
-6. `ren (Rename):`
+6. **ren (Rename):**
 
    - 重命名文件或目录。
 
-   ```powershell
-      ren oldname newname
-   ```
+     `ren oldname newname`
 
-7. `move:`
+7. **move:**
 
    - 移动文件或目录到另一个位置。
 
-   ```powershell
-     move source destination
-   ```
+     `move source destination`
 
-8. `echo:`
+8. **echo:**
 
    - 在命令行中显示文本。
 
-   ```powershell
-     echo Hello, World!
-   ```
+      `echo Hello, World!`
 
-9. `cls (Clear Screen):`
+9. **cls (Clear Screen):**
 
    - 清除屏幕内容。
 
-   ```powershell
-     cls
-   ```
+     `cls`
 
-10. `type:`
+10. **type:**
 
     - 显示文本文件的内容。（注意，type指令还可以用其他指令代替，代表打开文件的不同方式，如vi（用vim打开）、code（用vscode打开））
 
-   ```powershell
-      type filename.txt
-      vi filename.txt
-      code filename.txt
-   ```
+      `type filename.txt`
+
+      `vi filename.txt`
+
+      `code filename.txt`
+
+
 
 ## Git初始配置
 
@@ -194,8 +185,10 @@ Git是一种分布式版本控制系统，用于跟踪、管理和协调项目�
    查看用户名`git config <--global> user.name`
 
    查看电子邮件`git config <--global> user.email`
+   
+   或者`git config --list`	列出所有配置项，包括用户信息、远程仓库等。
 
-   或者`git config --list` 列出所有配置项，包括用户信息、远程仓库等。
+
 
 ## 相关概念解惑
 
@@ -210,23 +203,25 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 
 ![image-20231203172625544](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203172625544.png)
 
+
+
 详细定义，以及各区域的作用（大家自己阅读）：
 
 1. **工作区（Working Directory）是你当前正在进行编辑和修改的目录。它包含了项目的实际文件。**
 
 2. **暂存区（缓冲区）（Staging Area/Index）是一个介于工作目录和本地仓库之间的中间区域。当你对工作目录中的文件进行修改后，可以使用`git add`命令将这些修改添加到暂存区。在添加到暂存区后，这些修改就可以被提交到本地仓库。**
-  
+   
    1. 分离工作目录和本地仓库：通过将修改添加到暂存区，你可以选择性地将某些修改纳入提交，而不是一次性将所有修改直接提交到本地仓库。这使得你可以更加细粒度地控制提交的内容，只保存你认为有意义或符合逻辑的修改。
    2. 检查修改内容：在将修改添加到暂存区之前，你可以使用`git diff`命令查看工作目录中的修改与上次提交的差异。这可以让你仔细检查和审查所做的变更，确保准备好要提交的内容。
    3. 执行多个提交：当你在工作目录中进行多个逻辑上独立的修改时，可以将每个修改分别添加到暂存区，并使用不同的提交来记录每个修改的目的和意图。这样，每个提交都会成为项目历史中的一个独立版本，使得追溯和回滚变得更加灵活和可控。
    4. 撤销修改：如果你意识到工作目录中的某个修改是错误的或不需要的，你可以使用`git restore --staged <file>`命令将修改从暂存区移除，而不会影响工作目录中的实际文件。这让你可以撤销暂存的修改，重新整理提交内容。
-
+   
 3. **本地仓库（Local Repository）是保存项目历史记录的地方。它包含了你提交的所有版本以及每个版本的元数据信息。当你使用`git commit`命令提交暂存区中的修改时，这些修改就会被永久地保存在本地仓库中。**
    1. 版本控制：本地仓库保存了项目的完整历史记录，包括每次提交的快照和相关元数据（如作者、提交日期等）。这使得你可以回溯到任何时间点的特定版本，查看文件的状态、修改内容、比较差异或还原到先前的版本。
    2. 工作区恢复：如果你在工作目录中误删除了或修改了某些文件，本地仓库允许你通过检出（checkout）先前提交的版本来恢复工作目录的状态。这是一个强大的功能，可以帮助你纠正错误或恢复到稳定的工作状态。
    3. 分支管理：本地仓库支持分支操作，允许你创建新的分支并在不同的分支上开展并行的工作。分支可以用于同时处理多个任务、开发新功能、修复问题等。本地仓库中的分支可以合并（merge）或重置（reset）到其他分支，以便将各个分支的修改整合到一起。
    4. 单机协作：本地仓库使得在单个开发者工作中协作变得容易。你可以使用本地仓库创建和管理自己的分支，进行代码修改和提交，并与他人共享本地仓库以实现团队协作。
-
+   
 4. **远程仓库（Remote Repository）是位于远程服务器上的仓库副本。它允许多个开发者之间协同工作，并可以用于共享代码。远程仓库通常用于集中存储和管理项目的代码，例如GitHub或Bitbucket等平台。你可以使用`git push`命令将本地仓库中的修改推送到远程仓库，或使用`git pull`命令从远程仓库获取最新的修改。**
 
    1. 共享和备份代码：远程仓库提供了一个中央化的代码存储和共享平台，使多个开发者能够访问、共享和备份项目的代码。即使本地仓库出现问题，你仍然可以从远程仓库中恢复项目。
@@ -236,12 +231,18 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 
    4. 部署和发布：远程仓库允许你将代码部署到生产环境或发布到特定的服务器。你可以通过将代码推送到远程仓库来触发自动部署流程或通知其他工具进行构建、测试和部署。
 
+
+
 ### 文件状态
 
 **Untracked：**未跟踪，此文件在文件夹中但并没有加入到git库，不参与版本控制，通过git add 状态变为Staged。
 **Unmodify：**文件已经入库，未修改，即版本库中的文件快照内容与文件夹中完全一致，这种类型的文件有两种去处，1. 如果被修改，而变成Modefied,2. 如果使用git rm移除版本库，则成为Untracked文件。
 **Modified：**文件已修改，仅仅时修改，并没有进行其他操作，这个文件也有两个去处，1. 通过git add可进入暂存Staged状态，2. 使用给git checkout 则丢弃修改内容，返回Unmodifiy状态，这个git checkout 即从库中去除文件，覆盖当前修改。
 **Staged：**暂存状态，执行git commit 则将修改同步到库中，这时库中的文件和本地文件又变为一致，文件为Unmodify状态，执行git reset HEAD filename取消暂存，文件状态为Modified。
+
+
+
+
 
 ## 开始创建本地仓库
 
@@ -251,13 +252,19 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 2. 进入您想要创建仓库的文件夹：`cd path`
 3. 输入以下命令初始化一个新的Git仓库：`git init`
 
+
+
 ![image-20231202173248851](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231202173248851.png)
+
+
 
 **此时我们就创建好了一个`.git`文件夹。**
 
 `.git`文件夹是Git版本控制系统用来存储仓库元数据和对象数据库的地方。该文件夹包含了整个仓库的配置信息、对象数据库（存储文件和目录的快照）、引用（指向提交的指针）、配置文件等。因此，可以说`.git` 文件夹是本地Git仓库的核心。
 
 **注意`.git`文件夹在文件资源管理器中是看不见的。**你可以使用命令行中的`ls -a`（在Unix/Linux系统下）或者`dir /a`（在Windows系统下）来查看包含隐藏文件的目录。
+
+
 
 ## 添加与提交更改
 
@@ -287,6 +294,8 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 
    ![image-20231202174441854](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231202174441854.png)
 
+
+
 ## 查看差异
 
 在 Git 中，有几个常用的命令用于查看文件之间的差异（diff）。以下是其中几个常见的 Git 查看差异的指令：
@@ -302,6 +311,8 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 5. **git log -p:**
    - 查看提交历史，并显示每个提交的详细差异。
 
+
+
 ## 回退版本
 
 在 Git 中，有几种方法可以用于回退版本，以下是一些常见的 Git 回退版本的指令：
@@ -312,7 +323,7 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 
      ![image-20231203173114636](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203173114636.png)
 
-```
+   ```
    # 回退到前一个提交，保留更改在工作目录，但不在暂存区域中
    git reset --soft HEAD~1
    
@@ -325,7 +336,7 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
    git reset --hard HEAD^^ #回退到上上一个版本
    git reset --hard HEAD~3 #回退到往上3个版本
    git reset --hard HEAD~10 #回退到往上10个版本
-```
+   ```
 
    HEAD~1可以用提交编号代替，提交编号从`git log`找到，然后复制下来，当作参数。
 
@@ -333,31 +344,35 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 
    ![image-20231202180651379](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231202180651379.png)
 
+   
+
 2. **git revert:**
 
    - `git revert` 用于撤销指定提交引入的更改，并创建一个新的提交来应用这个撤销。
 
-```
+   ```
    # 撤销前一个提交
    git revert HEAD
    
    # 撤销指定提交
    git revert abc123
-```
+   ```
 
 3. **git checkout:**
 
    - `git checkout` 用于切换分支或还原文件到指定提交的状态。
 
-```
+   ```
    # 切换到之前的提交，工作目录和暂存区域都会变为指定提交的状态
    git checkout abc123
    
    # 切换到分支并将工作目录和暂存区域还原为该分支的状态
    git checkout branchname
-```
+   ```
 
 这些指令允许你在项目中执行不同类型的版本回退操作，具体取决于你的需求和希望达到的效果。在执行这些操作之前，请确保理解其对项目历史和工作目录的影响。如果你要回退到较旧的提交，最好先备份或确保不会丢失重要的更改。
+
+
 
 ## 分支
 
@@ -385,6 +400,8 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 
 通过使用分支，团队可以并行地进行多个任务，而不会相互干扰。每个分支都有其特定的目的和职责，从而提高了开发的灵活性和效率。分支还提供了对不同功能和任务的清晰可见性，有助于更好地组织和协调团队的工作。
 
+
+
 ### 分支概念
 
 以下是关于 Git 分支的一些关键概念：
@@ -397,59 +414,61 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 
    - 你可以通过创建新分支来在项目中进行新的开发工作。新分支的内容最初和创建它时的源分支相同。
 
-```
+   ```
    # 创建新分支
    git branch new-feature
-```
+   ```
 
 3. **切换分支：**
 
    - 使用 `git checkout` 或 `git switch` 命令可以在不同分支之间切换。
 
-```
+   ```
    # 切换到新创建的分支
    git checkout new-feature
-```
+   ```
 
 4. **合并分支：**
 
    - 将一个分支的更改合并到另一个分支。通常，你将新功能分支的更改合并到主分支。
 
-```
+   ```
    # 在主分支上合并新功能分支
    git checkout master
    git merge new-feature
-```
+   ```
 
 5. **查看分支：**
 
    - 使用 `git branch` 命令可以查看当前分支以及所有分支的列表。
 
-```
+   ```
    # 查看所有分支
    git branch
-```
+   ```
 
 6. **删除分支：**
 
    - 删除已经完成工作的分支。
 
-```
+   ```
    # 删除新功能分支
    git branch -d new-feature
-```
+   ```
 
 7. **远程分支：**
 
    - 在远程仓库上也可以有分支。你可以通过 `git push` 和 `git fetch` 命令与远程分支进行交互。
 
-```
+   ```
    # 推送本地分支到远程仓库
    git push origin new-feature
    
    # 拉取远程分支到本地
    git fetch origin new-feature
-```
+   ```
+
+   
 
 ### 分支策略
 
@@ -468,9 +487,11 @@ Git有四个工作区域，分别是工作区（Working Directory），暂存区
 5. **热修复分支（Hotfix Branches）：**
    - 热修复分支用于紧急修复在发布后发现的生产问题。这个分支从主分支中创建，完成修复后合并回主分支和开发分支。
 
+
+
 ## 远程仓库与GitHub
 
-将本地仓库与远程仓库关联，并使用GitHub托管您的代码。
+将本地仓库与远程仓库关联，并使用GitHub托管您的代码。	
 
 ### 创建远程仓库
 
@@ -527,7 +548,7 @@ PreferredAuthentications publickey
 IdentityFile ~/.ssh/yourkey
 ```
 
-步骤七：用`git clone git@github.com:Buzz2Z/aboutGit.git`验证是否成功。
+步骤七：用`git clone git@github.com:Buzz2Z/aboutGit.git `验证是否成功。
 
 ### 将本地仓库与远程仓库关联
 
@@ -600,43 +621,45 @@ git push -u origin your-local-branch-name
 
 1. **查看远程仓库列表：**
 
-```
+   ```
    git remote
-```
+   ```
 
    这会显示你当前 Git 仓库配置的所有远程仓库的简写名称。
 
 2. **查看远程仓库详细信息：**
 
-```
+   ```
    git remote -v
-```
+   ```
 
    这会显示远程仓库的详细信息，包括 URL。
 
 3. **重命名远程仓库：**
 
-```
+   ```
    git remote rename <旧远程仓库名> <新远程仓库名>
-```
+   ```
 
    这会将远程仓库的简写名称从旧的名字改为新的名字。
 
 4. **删除远程仓库：**
 
-```
+   ```
    git remote remove <远程仓库名>
-```
+   ```
 
    这会移除你的 Git 仓库配置中的某个远程仓库。
 
 5. **查看远程仓库信息：**
 
-```
+   ```
    git remote show <远程仓库名>
-```
+   ```
 
    这会显示关于指定远程仓库的更详细的信息，包括跟踪的分支、本地和远程分支之间的关系等。
+
+
 
 ## 从Git Bash到Git Graph
 
@@ -649,11 +672,15 @@ git push -u origin your-local-branch-name
 - **代码审查困难：** 在命令行中进行代码审查可能相对繁琐，需要查看具体的文件路径、差异等。对于团队协作中的代码审查流程，可能希望能够更轻松地进行可视化的审查。
 - **实时图形展示：** Git 命令行不提供实时的图形展示，不能动态地展示分支合并、提交历史的变化。有时候，这种动态的展示可以更好地帮助用户理解项目的演进。
 
+
+
 Git Graph 插件的优势在于可视化展示。
 
 使得项目的结构和提交历史更加清晰易懂。这对于初学者来说，尤其是对 Git 概念和操作不够熟悉的人来说，更容易理解和使用。同时，通过图形界面的交互，可以更直观地执行一些 Git 操作，减少了记忆和输入命令的负担。
 
 ![image-20231202162120046](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231202162120046.png)
+
+
 
 ### 用GitGraph完成一些基本操作
 
@@ -705,7 +732,7 @@ Git Graph 插件的优势在于可视化展示。
 
 #### 回退版本
 
-直接右键每次提交的标签，选择Reset current branch to this Commit，选择回退方式，这相当于完成`git reset`指令。
+直接右键每次提交的标签，选择Reset current branch to this Commit，选择回退方式，这相当于完成`git reset `指令。
 
 ![image-20231203171454868](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203171454868.png)
 
@@ -715,8 +742,14 @@ Git Graph 插件的优势在于可视化展示。
 
 ![image-20231203171732461](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203171732461.png)
 
+
+
 #### 分支操作
 
 ![image-20231203172241968](https://mypic-1312707183.cos.ap-nanjing.myqcloud.com/undefinedimage-20231203172241968.png)
+
+
+
+
 
 *。。。有待完善*
